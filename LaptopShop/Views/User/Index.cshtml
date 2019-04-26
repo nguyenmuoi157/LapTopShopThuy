@@ -1,0 +1,53 @@
+﻿@model Model.EF.user
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div id="content">
+        @using (Html.BeginForm("AddUser", "User", FormMethod.Post))
+        {
+            @Html.ValidationSummary(false,"","error")
+            <form action="#" method="post" class="beta-form-checkout">
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <h4>Đăng kí</h4>
+                        <div class="space20">&nbsp;</div>
+
+                        <div class="form-block">
+                            <label for="your_last_name">Username*</label>
+                            @Html.TextBoxFor(x => x.username, new { @required = "required" })
+                        </div>
+
+                        <div class="form-block">
+                            <label for="your_last_name">Fullname*</label>
+                            @Html.TextBoxFor(x => x.full_name, new { @required = "required" })
+                        </div>
+
+                        <div class="form-block">
+                            <label for="email">Email address*</label>
+                            @Html.TextBoxFor(x => x.email, new { @required = "required" })
+                        </div>
+
+                        <div class="form-block">
+                            <label for="phone">Password*</label>
+                            <input type="password" id="password" required>
+                        </div>
+                        <div class="form-block">
+                            <label for="phone">Re password*</label>
+                            <input type="password" id="confirm_password" required>
+                        </div>
+                        <div class="form-block">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </form>
+        }
+        </div> <!-- #content -->
+    </div> <!-- .container -->
+
+
+

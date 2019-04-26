@@ -1,0 +1,54 @@
+﻿@model LaptopShop.Models.LoginModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="inner-header">
+    <div class="container">
+        <div class="pull-left">
+            <h6 class="inner-title">Đăng nhập</h6>
+        </div>
+        <div class="pull-right">
+            <div class="beta-breadcrumb">
+                <a href="index.html">Home</a> / <span>Đăng nhập</span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div id="content">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-sm-3"></div>
+
+            <div class="col-sm-6">
+                <h4>Đăng nhập</h4>
+                @Html.ValidationSummary(false, "", "error")
+                <div class="space20">&nbsp;</div>
+
+
+                <div class="form-block">
+                    <label for="email">Email address*</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @required = "required" })
+                </div>
+                <div class="form-block">
+                    <label for="phone">Password*</label>
+                    @Html.PasswordFor(m => m.PassWord, new { @required = "required" })
+                </div>
+                <div class="form-block">
+                    <input type="submit" class="btn btn-primary" title="Login" />
+                </div>
+
+
+
+            </div>
+
+            <div class="col-sm-3"></div>
+        </div>
+}
+        
+    </div> <!-- #content -->
+</div> <!-- .container -->

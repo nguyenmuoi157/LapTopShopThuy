@@ -1,0 +1,48 @@
+﻿@model Model.EF.customer
+@{
+    ViewBag.Title = "Index";
+}
+@using (Html.BeginForm("AddCustomer", "Customer", FormMethod.Post))
+{
+    @Html.ValidationSummary(false, "", "error");
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4>Customer</h4>
+            <div class="space20">&nbsp;</div>
+
+            <div class="form-block">
+                <label for="your_last_name">Fullname*</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-block">
+                <label for="your_last_name">Gender*</label><br />
+                <input type="radio" name="gender" value="true" checked="checked">Male<br />
+                <input type="radio" name="gender" value="false">Female
+            </div>
+
+            <div class="form-block">
+                <label for="email">Email address*</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-block">
+                <label for="adress">Address*</label>
+                <input type="text" name="address" id="address" required>
+            </div>
+
+
+            <div class="form-block">
+                <label for="phone">Phone*</label>
+                <input type="text" name="phone_number" id="phone_number" required>
+            </div>
+            <div class="form-block">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>       
+        }
+
+

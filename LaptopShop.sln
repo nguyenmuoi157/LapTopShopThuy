@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaptopShop", "LaptopShop\LaptopShop.csproj", "{863F24E6-A145-4A17-8B67-0A2A715AC649}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{8808DD17-A46F-459A-9C69-8C0C55FB9D38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{863F24E6-A145-4A17-8B67-0A2A715AC649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{863F24E6-A145-4A17-8B67-0A2A715AC649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{863F24E6-A145-4A17-8B67-0A2A715AC649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{863F24E6-A145-4A17-8B67-0A2A715AC649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8808DD17-A46F-459A-9C69-8C0C55FB9D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8808DD17-A46F-459A-9C69-8C0C55FB9D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8808DD17-A46F-459A-9C69-8C0C55FB9D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8808DD17-A46F-459A-9C69-8C0C55FB9D38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2444C93-07F8-46C9-BE0E-AC8EDB9B9788}
+	EndGlobalSection
+EndGlobal

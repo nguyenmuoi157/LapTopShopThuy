@@ -1,0 +1,79 @@
+﻿@model PagedList.IPagedList<Model.EF.product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div id="content" class="space-top-none">
+        <div class="main-content">
+            <div class="space60">&nbsp;</div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="beta-products-list">
+                        <h4 style="color:blue">All Products</h4>
+                        <div class="beta-products-details">
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="row">
+                            @{ var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN"); }
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-sm-3">
+                                    <div class="single-item">
+
+                                        @{
+                                            if (item.isSale == true)
+                                            {
+                                                <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+                                            }
+                                        }
+                                        <div class="single-item-header">
+                                            <a href="#"><img src="~/assets/images/@item.image" alt=""></a>
+                                        </div>
+                                        <div class="single-item-body">
+                                            <p class="single-item-title" style="height:40px">@item.name</p>
+                                            @{
+                                                if (item.isSale == true)
+                                                {
+                                                    <p class="single-item-price" style="height:40px; font-size:15px">
+                                                        <span class="flash-del">@string.Format("{0:0,0}", item.unit_price) VND</span>
+                                                        <span class="flash-sale">@string.Format("{0:0,0}", item.promotion_price) VND</span>
+                                                    </p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="single-item-price" style="height:40px; font-size:15px">
+                                                        <span>@string.Format("{0:0,0}", item.unit_price) VND</span>
+                                                    </p>
+                                                }
+                                            }
+
+                                        </div>
+                                        <div class="single-item-caption">
+                                            <a class="add-to-cart pull-left" href="/Cart/AddItem?productId=@item.id&quatity=1"><i class="fa fa-shopping-cart"></i></a>
+                                            <a class="beta-btn primary" href="/DetailProduct/Index/@item.id">Detail<i class="fa fa-chevron-right"></i></a>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+
+                    </div> <!-- .beta-products-list -->
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                    <div class="space50">&nbsp;</div>
+                    @{ Html.RenderAction("TopProduct", "Home");}
+                    <!-- .beta-products-list -->
+                </div>
+
+            </div> <!-- end section with sidebar and main content -->
+
+
+        </div> <!-- .main-content -->
+    </div> <!-- #content -->
+</div> <!-- .container -->

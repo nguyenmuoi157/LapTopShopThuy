@@ -1,0 +1,58 @@
+﻿@model Model.EF.product
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div id="content">
+        <div class="row">
+            <div class="col-sm-9">
+                @{ var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN"); }
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="~/assets/images/@Model.image" alt="">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="single-item-body">
+                            <p class="single-item-title">@Model.name</p>
+                            <p class="single-item-price" style="font-size:15px">
+                                <span>
+                                    Unit Price: @string.Format("{0:0,0}", Model.unit_price)VND;
+                                </span>
+                            </p>
+
+                            @if (Model.isSale == true)
+                            {
+                                <p class="single-item-price" style="font-size:15px">
+                                    <span>
+                                        Promotion Price: @string.Format("{0:0,0}", Model.promotion_price)VND;
+                                    </span>
+                                </p>
+                            }
+
+
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="space20">&nbsp;</div>
+
+                        <div class="single-item-desc">
+                            <p>@Model.description</p>
+                        </div>
+                        <div class="space20">&nbsp;</div>
+                        <div class="single-item-options">
+                            <p>Add Cart:</p><a class="add-to-cart" href="/Cart/AddItem?productId=@Model.id&quatity=1"><i class="fa fa-shopping-cart"></i></a>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="space50">&nbsp;</div>
+                <!-- .beta-products-list -->
+            </div>
+
+        </div>
+    </div> <!-- #content -->
+</div> <!-- .container -->

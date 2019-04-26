@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/Client/dest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/Client/dest/vendors/colorbox/example3/colorbox.css">
+    <link rel="stylesheet" href="~/assets/Client/dest/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/assets/Client/dest/rs-plugin/css/responsive.css">
+    <link rel="stylesheet" title="style" href="~/assets/Client/dest/css/style.css">
+    <link rel="stylesheet" href="~/assets/Client/dest/css/animate.css">
+    <link rel="stylesheet" title="style" href="~/assets/Client/dest/css/huong-style.css">
+
+</head>
+<body>
+    <div id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="pull-left auto-width-left">
+                    <ul class="top-menu menu-beta l-inline">
+                        <li><a href=""><i class="fa fa-home"></i> Số 210 Thái Hà, Trung Liệt, Đống Đa, Hà Nội</a></li>
+                        <li><a href=""><i class="fa fa-phone"></i> 1900 2655</a></li>
+                    </ul>
+                </div>
+                <div class="pull-right auto-width-right">
+                    <ul class="top-details menu-beta l-inline">
+                        @if (Session["loginsession"] != null)
+                        {
+                            <li><a href="/Admin/Home/Index"><i class="fa fa-user"></i>Tài khoản</a></li>
+                        }
+
+                        @if (Session["loginsession"] == null)
+                        {
+                            <li><a href="/User/Index">Đăng kí</a></li>
+                            <li>
+
+                                <a href="/Login/Index">Đăng nhập</a>
+                            </li>
+                        }
+
+
+
+
+                    </ul>
+                
+
+
+                                                    </div>
+                
+
+
+                                                    <div class="clearfix"></div>
+            </div> <!-- .container -->
+        </div> <!-- .header-top -->
+        <div class="header-body">
+            <div class="container beta-relative">
+                <div class="pull-left">
+                    <a href="index.html" id="logo"><img src="assets/dest/images/logo-cake.png" width="200px" alt=""></a>
+                </div>
+                <div class="pull-right beta-components space-left ov">
+                    <div class="space10">&nbsp;</div>
+                    <div class="beta-comp">
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                        {
+                        <form role="search" method="get" id="searchform" action="/">
+                            <input type="text" value="" name="searchString" id="searchString" placeholder="Nhập từ khóa..." />
+                            <button class="" type="submit" id="searchsubmit"></button>
+                            <!--fa fa-search-->
+                        </form>
+                        }
+
+                    </div>
+                    <a class=" beta-comp" href="/Cart/Index">
+                        <div class="cart">
+                            <i class="fa fa-shopping-cart"></i>Gio hang
+                        </div> <!-- .cart -->
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div> <!-- .container -->
+        </div> <!-- .header-body -->
+        <div class="header-bottom" style="background-color: #0277b8;">
+            <div class="container">
+                <a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a>
+                <div class="visible-xs clearfix"></div>
+                @{ Html.RenderAction("MainMenu", "TypeProduct");}
+            </div> <!-- .container -->
+        </div> <!-- .header-bottom -->
+    </div> <!-- #header -->
+    @RenderBody();
+    <div id="footer" class="color-div">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <div class="widget">
+                        <h4 class="widget-title">CỞ SỞ</h4>
+                        <div>
+                            <ul>
+                                <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i> Số 210 Thái Hà, Trung Liệt, Đống Đa, Hà Nội</a></li>
+                                <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i>Điện thoại:
+                                    <ul>
+                                        <li>19002655</li>
+                                        <li>024 3537 9888</li>
+                                    </ul>
+                                    </a></li>
+                                <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i> Email:sales@ankhang.vn</a></li>
+                   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="col-sm-10">
+                        <div class="widget">
+                            <h4 class="widget-title">TRUNG TÂM BẢO HÀNH</h4>
+                            <div>
+                                <ul>
+                                    <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i> Tầng 3, 210 Thái Hà, Trung Liệt, Đống Đa, Hà Nội</a></li>
+                                    <li>
+                                        <a href="blog_fullwidth_2col.html">
+                                            <i class="fa fa-chevron-right"></i>Điện thoại:
+                                            <ul>
+                                                <li>19002655(+106)</li>
+                                                <li>093 669 7181</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i> Email:baohanh@ankhang.vn</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+    </div> <!-- #footer -->
+    <div class="copyright">
+        <div class="container">
+            <p class="pull-left">Privacy policy. (&copy;) 2014</p>
+            <p class="pull-right pay-options">
+                <a href="#"><img src="assets/dest/images/pay/master.jpg" alt="" /></a>
+                <a href="#"><img src="assets/dest/images/pay/pay.jpg" alt="" /></a>
+                <a href="#"><img src="assets/dest/images/pay/visa.jpg" alt="" /></a>
+                <a href="#"><img src="assets/dest/images/pay/paypal.jpg" alt="" /></a>
+            </p>
+            <div class="clearfix"></div>
+        </div> <!-- .container -->
+    </div> <!-- .copyright -->
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <!-- include js files -->
+    <script src="~/assets/Client/dest/js/jquery.js"></script>
+    <script src="~/assets/Client/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="~/assets/Client/dest/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="~/assets/Client/dest/vendors/colorbox/jquery.colorbox-min.js"></script>
+    <script src="~/assets/Client/dest/vendors/animo/Animo.js"></script>
+    <script src="~/assets/Client/dest/vendors/dug/dug.js"></script>
+    <script src="~/assets/Client/dest/js/scripts.min.js"></script>
+    <script src="~/assets/Client/dest/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/assets/Client/dest/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/assets/Client/dest/js/waypoints.min.js"></script>
+    <script src="~/assets/Client/dest/js/wow.min.js"></script>
+    <script>
+        $(document).ready(function ($) {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 150) {
+                    $(".header-bottom").addClass('fixNav')
+                } else {
+                    $(".header-bottom").removeClass('fixNav')
+                }
+            }
+            )
+        })
+    </script>
+
+    @RenderSection("jsFooter", required: false)
+</body>
+</html>

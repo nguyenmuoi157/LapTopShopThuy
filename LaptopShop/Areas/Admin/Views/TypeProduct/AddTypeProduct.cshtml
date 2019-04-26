@@ -1,0 +1,52 @@
+﻿@model Model.EF.type_products
+@{
+    ViewBag.Title = "AddTypeProduct";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-2 col-xlg-2 col-md-2"></div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="col-lg-8 col-xlg-9 col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    @using (Html.BeginForm("AddTypeProduct", "TypeProduct", FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(false,"","error")
+                    <div class="form-group">
+                        <label class="col-md-12">Name</label>
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Name" name="name" class="form-control form-control-line">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Description</label>
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Description" class="form-control form-control-line" name="description" id="description">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Image</label>
+                        <div class="col-md-12">
+                            <input type="text" name="image" class="form-control form-control-line">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button class="btn btn-success">Thêm mới</button>
+                        </div>
+                    </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-xlg-2 col-md-2"></div>
+        <!-- Column -->
+    </div>
+
+</div>
+

@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<Model.EF.bill>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-lg-12">
+                @using (Html.BeginForm("index", "Bill", FormMethod.Post))
+                {
+                    <div class=" col-md-4">
+                        <input type="text" class="form-control" name="searchString" />
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success">Tim kiếm</button>
+                    </div>
+                }
+
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">ID Customer</th>
+                            <th scope="col">Date Order</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">CreatedAt</th>
+                            <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ long STT = 0;}
+                        @foreach (var item in Model)
+                        {
+                            STT++;
+                            <tr>
+                                <td>@STT</td>
+                                <td>@item.id</td>
+                                <td>@item.id_customer</td>
+                                <td>@item.date_order</td>
+                                <td>@string.Format("{0:0,0}", item.total)</td>
+                                <td>@item.created_at</td>
+                                <td>
+                                    <a href="/Admin/Bill/Detail/@item.id" class="btn btn-primary">Chi tiết</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }));
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

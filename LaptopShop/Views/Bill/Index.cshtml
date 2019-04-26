@@ -1,0 +1,81 @@
+﻿@model List<LaptopShop.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+}
+@TempData["CartSuccess"];
+<div class="container">
+    <div id="content">
+
+        <div class="table-responsive">
+            <!-- Shop Products Table -->
+            <table class="shop_table beta-shopping-cart-table" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="product-name">STT</th>
+                        <th class="product-price">Name</th>
+                        <th class="product-status">Image</th>
+                        <th class="product-quantity">Qty.</th>
+                        <th class="product-subtotal">price</th>
+                        <th class="product-remove">total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int stt = 0;}
+                    @foreach (var item in Model)
+                    {
+                        stt++;
+                        <tr class="cart_item">
+                            <td>@stt</td>
+                            <td class="product-name">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <p class="font-large table-title">@item.Product.name</p>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class="product-price">
+                                <img src="#" alt="#" />
+                            </td>
+
+                            <td class="product-status">
+                                @item.Quantity
+                            </td>
+
+                            <td class="product-quantity">
+                                @item.Product.promotion_price
+                            </td>
+
+                            <td class="product-subtotal">
+                                <span class="amount">@(item.Quantity * item.Product.promotion_price)</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <!-- End of Shop Table Products -->
+        </div>
+
+
+        <!-- Cart Collaterals -->
+        @{ double total = 0;}
+        @foreach (var item in Model)
+        {
+            total = total + (item.Quantity * item.Product.promotion_price.Value);
+        }
+        <div class="cart-collaterals">
+            <div class="cart-totals pull-right">
+
+                <div class="cart-totals-row"><h5 class="cart-total-title">Cart Totals</h5></div>
+                <div class="cart-totals-row">
+                    <span>Cart Subtotal:</span>
+                    <span>@total</span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- End of Cart Collaterals -->
+        <div class="clearfix"></div>
+
+    </div> <!-- #content -->
+</div> <!-- .container -->
