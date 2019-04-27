@@ -17,7 +17,8 @@ namespace LaptopShop.Controllers
         }
         public ActionResult AddUser(user user)
         {
-            if(ModelState.IsValid)
+            user.RoleID = 2;
+            if (ModelState.IsValid)
             {
                 user.created_at = DateTime.Now;
                 var dao = new UserDao();

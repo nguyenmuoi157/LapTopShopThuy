@@ -16,6 +16,7 @@ namespace LaptopShop.Common
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
+            bool result = true;
             var session = (user)HttpContext.Current.Session[loginsession];
             if (session == null)
             {
@@ -31,6 +32,7 @@ namespace LaptopShop.Common
             {
                 return false;
             }
+
             //List<string> privilegeLevels = this.GetCredentialByLoggedInUser(session.username); // Call another method to get rights of the user from DB
 
             //if (privilegeLevels.Contains(this.RoleName) || session.GroupID == CommonConstants.ADMIN_GROUP)
@@ -41,6 +43,7 @@ namespace LaptopShop.Common
             //{
             //    return false;
             //}
+
         }
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {

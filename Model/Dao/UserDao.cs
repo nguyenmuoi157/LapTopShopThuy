@@ -19,6 +19,26 @@ namespace Model.Dao
             db.users.Add(user);
             db.SaveChanges();
         }
+        public bool UpdateUser(user user)
+        {
+            try
+            {
+                var _user = db.users.SingleOrDefault(p => p.id == user.id);
+
+                _user = user;
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+        }
+
+
         public List<user> GetAllUser(string searchString)
         {
             IQueryable<user> model = db.users;
@@ -55,6 +75,12 @@ namespace Model.Dao
                 return false;
             }
         }
+
+        public user GetUserById(long id)
+        {
+            return db.users.Where(x => x.id== id).SingleOrDefault();
+        }
+
 
     }
 }
